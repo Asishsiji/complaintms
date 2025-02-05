@@ -68,4 +68,4 @@ class Grievance(models.Model):
     guser=models.OneToOneField(User,on_delete=models.CASCADE,default=None)
 
     def __str__(self):
-        return self.guser
+        return self.guser.username

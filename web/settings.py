@@ -95,9 +95,9 @@ DATABASES = {
 
         'USER': 'postgres',
 
-        'PASSWORD': '1353',
+        'PASSWORD': 'Avemariya',
 
-        'HOST': '127.0.0.1',
+        'HOST': 'localhost',
 
         'PORT': '5432',
     }
@@ -172,3 +172,5 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
