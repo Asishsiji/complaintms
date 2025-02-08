@@ -1,4 +1,4 @@
-setuptools<60
+setuptools==59.6.0  # Or another specific version known to work, like 58.0.0
 wheel
 asgiref==3.4.1
 certifi==2021.10.8
@@ -19,7 +19,6 @@ lazy-object-proxy==1.6.0
 oauthlib==3.1.1
 phonenumberslite==8.12.39
 pillow==10.2.0
-pip==24.0
 psycopg2==2.9.9
 psycopg2-binary==2.9.2
 pycparser==2.21
