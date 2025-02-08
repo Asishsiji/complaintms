@@ -25,6 +25,18 @@ echo "About to run collectstatic..." # Debug output
 python manage.py collectstatic --noinput
 echo "collectstatic completed."
 
+# Create public/media directory if you use media files (If needed)
+if [ ! -d "public/media" ]; then
+  mkdir -p public/media
+  echo "public/media directory created"
+fi
+
+# ***YOUR SERVER START COMMAND (VERY IMPORTANT - THE MISSING PIECE)***
+echo "Starting server..."  # Debug output
+gunicorn --bind :8080 web.wsgi:application  # Or your specific command
+# OR (for development only - NOT RECOMMENDED FOR PRODUCTION)
+# python manage.py runserver 0.0.0.0:8080"
+
 # Check if the public/static directory exists (Debugging)
 if [ -d "public/static" ]; then
   echo "public/static directory exists."
