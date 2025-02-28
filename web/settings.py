@@ -98,16 +98,26 @@ load_dotenv()
 # Replace the DATABASES section of your settings.py with this
 tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 
+import os
+import dj_database_url
+
+# Check if tmpPostgres is defined and valid
+if 'DATABASE_URL' in os.environ:
+    tmpPostgres = dj_database_url.parse(os.environ['DATABASE_URL'])
+else:
+    tmpPostgres = None
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': tmpPostgres.path.decode('utf-8').replace('/', ''),
-        'USER': tmpPostgres.username,
-        'PASSWORD': tmpPostgres.password,
-        'HOST': tmpPostgres.hostname,
-        'PORT': 5432,
+        'NAME': tmpPostgres.path.decode('utf-8').replace('/', '') if tmpPostgres else os.getenv('DB_NAME', 'default_db'),
+        'USER': tmpPostgres.username if tmpPostgres else os.getenv('DB_USER', 'default_user'),
+        'PASSWORD': tmpPostgres.password if tmpPostgres else os.getenv('DB_PASSWORD', 'default_password'),
+        'HOST': tmpPostgres.hostname if tmpPostgres else os.getenv('DB_HOST', 'localhost'),
+        'PORT': tmpPostgres.port if tmpPostgres else os.getenv('DB_PORT', '5432'),
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
