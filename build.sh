@@ -56,5 +56,6 @@ echo "Starting server..." # Add this
 gunicorn --bind :8080 web.wsgi:application  # Or your specific command
 # OR
 pip install python-dotenv
+pip install dj-database-url
 
 # python manage.py runserver 0.0.0.0:8080 # For development only (not recommended for production)
