@@ -8,6 +8,7 @@ python3 -m pip install --upgrade pip setuptools wheel
 
 # Install dependencies
 python3 -m pip install -r requirements.txt
+python3 -m pip install --upgrade requests urllib3 chardet charset_normalizer
 
 # Apply migrations
 echo "Running migrations..."
@@ -26,4 +27,5 @@ PORT=${PORT:-8080}
 
 # Start Gunicorn with the correct port
 echo "Starting server on port $PORT..."
-python3 -m gunicorn --bind 0.0.0.0:$PORT web.wsgi:application
+python3 -m gunicorn --bind 0.0.0.0:8080 web.wsgi:application &
+
