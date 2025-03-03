@@ -21,6 +21,9 @@ echo "Static files collected."
 # Ensure media directory exists
 mkdir -p public/media
 
-# Start Gunicorn (using $PORT)
-echo "Starting server..."
+# Set default PORT if not provided
+PORT=${PORT:-8080}
+
+# Start Gunicorn with the correct port
+echo "Starting server on port $PORT..."
 python3 -m gunicorn --bind 0.0.0.0:$PORT web.wsgi:application
