@@ -34,5 +34,6 @@ tzdata==2021.5
 urllib3==1.26.7
 wrapt==1.13.3
 xlwt==1.3.0
-python-dotenv
+python3-dotenv
 gunicorn
+python3-distutils
