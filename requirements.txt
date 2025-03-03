@@ -1,6 +1,6 @@
 setuptools  # Or another specific version known to work, like 58.0.0
 wheel
-asgiref==3.4.1
+asgiref==3.7.2  # or latest stable version
 certifi==2021.10.8
 cffi==1.15.0
 chardet==5.2.0
